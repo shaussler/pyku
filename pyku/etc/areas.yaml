@@ -1,15 +1,15 @@
 ---
 
 EUR-44:
-  description: EUR-44 rotated longitude latitude grid in accordance with CORDEX
-    domains requirements https://cordex.org/domains/
+  description: EUR-44 rotated longitude latitude grid in accordance with CORDEX domains
+    requirements https://cordex.org/domains/
   projection:
     proj: ob_tran
     o_proj: longlat
     o_lat_p: 39.25
     o_lon_p: 0
     lon_0: 18
-    datum: WGS84
+    R: 6371229
     no_defs: null
     type: crs
   shape:
@@ -20,15 +20,15 @@ EUR-44:
     upper_right_xy: [18.21, 21.89]
 
 EUR-11:
-  description: EUR-11 rotated longitude latitude grid in accordance with CORDEX
-    domains requirements https://cordex.org/domains/
+  description: EUR-11 rotated longitude latitude grid in accordance with CORDEX domains
+    requirements https://cordex.org/domains/
   projection:
     proj: ob_tran
     o_proj: longlat
-    o_lon_p: 0
     o_lat_p: 39.25
+    o_lon_p: 0
     lon_0: 18
-    datum: WGS84
+    R: 6371229
     no_defs: null
     type: crs
   shape:
@@ -38,23 +38,43 @@ EUR-11:
     lower_left_xy: [-28.43, -23.43]
     upper_right_xy: [18.21, 21.89]
 
-EUR-6:
-  description: EUR-6
+CEU-3:
+  description: CEU-3 rotated longitude latitude grid in accordance with future CORDEX
+    domains https://github.com/WCRP-CORDEX/cordex-cmip6-cv/issues/429#issuecomment-4412746383
   projection:
     proj: ob_tran
     o_proj: longlat
-    o_lon_p: 0
     o_lat_p: 39.25
+    o_lon_p: 0
     lon_0: 18
-    datum: WGS84
+    R: 6371229
     no_defs: null
     type: crs
   shape:
-    height: 824
-    width: 848
+    height: 385
+    width: 345
   area_extent:
-    lower_left_xy: [-28.43, -23.43]
-    upper_right_xy: [18.21, 21.89]
+    lower_left_xy: [-9.3175, -5.0875]
+    upper_right_xy: [0.17, 5.5]
+
+CEUX-3:
+  description: CEUX-3 rotated longitude latitude grid in accordance with future CORDEX
+    domains https://github.com/WCRP-CORDEX/cordex-cmip6-cv/issues/429#issuecomment-4412746383
+  projection:
+    proj: ob_tran
+    o_proj: longlat
+    o_lat_p: 39.25
+    o_lon_p: 0
+    lon_0: 18
+    R: 6371229
+    no_defs: null
+    type: crs
+  shape:
+    height: 502
+    width: 502
+  area_extent:
+    lower_left_xy: [-12.315, -6.93]
+    upper_right_xy: [1.49, 6.875]
 
 GER-0275:
   description: GER-0275

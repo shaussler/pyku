@@ -484,9 +484,11 @@ def apply_georeferencing(ds, area_def):
               ...: print(repaired)
     """
 
-    from pyku.meta import get_geographic_latlon_varnames
-    from pyku.meta import get_projection_yx_varnames
     import xarray as xr
+    from pyku.meta import (
+        get_geographic_latlon_varnames,
+        get_projection_yx_varnames,
+    )
 
     # Info for sanity
     # ---------------
@@ -567,7 +569,7 @@ def get_georeferencing(ds):
     """
 
     import xarray as xr
-    import pyku.meta as meta
+    from pyku import meta
 
     # Get geographic latlon names
     # ---------------------------
@@ -2015,9 +2017,7 @@ def select_area_extent(
     return ds_copy
 
 
-def select_neighborhood(
-        ds, lat, lon, roi=10000, neighbours=1000, crop=False
-):
+def select_neighborhood(ds, lat, lon, roi=10000, neighbours=1000, crop=False):
     """
     Select all the given number of neighbours within the radius of influence
     (roi) around the selected point given in geographic coordinates.
@@ -2075,7 +2075,7 @@ def select_neighborhood(
     # Search the indices of n neighbours within the radius of influence
     # -----------------------------------------------------------------
 
-    vii, voi, index_array, distance_array = kd_tree.get_neighbour_info(
+    _vii, _voi, index_array, distance_array = kd_tree.get_neighbour_info(
         source_area_def,
         target_area_def,
         radius_of_influence=roi,
@@ -2180,7 +2180,7 @@ def _resampling_nearest_from_swath_to_grid(
     # Added noqa because I don't know any better how the line should be
     # formatted.
 
-    valid_input_index, valid_output_index, index_array, distance_array = \
+    valid_input_index, valid_output_index, index_array, _distance_array = \
         kd_tree.get_neighbour_info(
             source_swath,
             target_grid,
@@ -2329,8 +2329,7 @@ def _resampling_idw_from_swath_to_swath(
 
 
 def _resampling_nearest_from_swath_to_swath(
-        in_arr, source_swath, target_swath, roi,
-        chunks, use_dask=True
+    in_arr, source_swath, target_swath, roi, chunks, use_dask=True
 ):
     """
     Block resampling
@@ -2356,7 +2355,7 @@ def _resampling_nearest_from_swath_to_swath(
     # source_swath.lons=np.pad(source_swath.lons, 1, mode='edge')
     # source_swath.lats=np.pad(source_swath.lats, 1, mode='edge')
 
-    valid_input_index, valid_output_index, index_array, distance_array = \
+    valid_input_index, valid_output_index, index_array, _distance_array = \
         kd_tree.get_neighbour_info(
             source_swath,
             target_swath,
@@ -2829,6 +2828,12 @@ def project(
     import xarray as xr
     from pyku import drs, features, mask, meta
 
+    try:
+        import xesmf as xe
+        HAS_XESMF = True
+    except ImportError:
+        HAS_XESMF = False
+
     # Shallow copy the input and rename for clarity
     # ---------------------------------------------
 
@@ -3016,7 +3021,6 @@ def project(
     # -----------------------------------------------------------------
 
     y_name, x_name = meta.get_projection_yx_varnames(in_ds)
-    lat_name, lon_name = meta.get_geographic_latlon_varnames(ds)
 
     # Projecting, we can chunk over time or height, but not over lat/lon, x/y
     # -----------------------------------------------------------------------
@@ -3180,9 +3184,7 @@ def project(
             # Raise exception if xesmf is not installed
             # -----------------------------------------
 
-            try:
-                import xesmf as xe  # type: ignore
-            except ImportError:
+            if not HAS_XESMF:
                 raise ImportError(
                     "xesmf and esmpy for conservative resampling are not "
                     "installed by default. ESMF binaries must first be "

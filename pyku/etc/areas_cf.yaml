@@ -1,17 +1,20 @@
 ---
 # This file extends the area definitions defined in areas.yaml with a key for
 # CF conform area definitions.
-
+#
 EUR-44:
     crs_name: rotated_pole
     crs_data:
         grid_mapping_name: rotated_latitude_longitude
         grid_north_pole_latitude: 39.25
         grid_north_pole_longitude: -162.0
+        earth_radius: 6371229.
         long_name: coordinates of the rotated North Pole
     y_coordinate: 'rlat'
     x_coordinate: 'rlon'
     CORDEX_domain: 'EUR-44'
+    proj4: '+R=6371229 +lon_0=18 +no_defs +o_lat_p=39.25 +o_lon_p=0 +o_proj=longlat +proj=ob_tran +type=crs'
+    crs_wkt: 'GEOGCRS["unnamed",BASEGEOGCRS["unknown",DATUM["unknown",ELLIPSOID["unknown",6371229,0,LENGTHUNIT["metre",1,ID["EPSG",9001]]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8901]]],DERIVINGCONVERSION["unknown",METHOD["PROJ ob_tran o_proj=longlat"],PARAMETER["o_lat_p",39.25,ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]],PARAMETER["o_lon_p",0,ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]],PARAMETER["lon_0",18,ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]]],CS[ellipsoidal,2],AXIS["longitude",east,ORDER[1],ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]],AXIS["latitude",north,ORDER[2],ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]]]'
 
 EUR-11:
     crs_name: rotated_pole
@@ -19,10 +22,41 @@ EUR-11:
         grid_mapping_name: rotated_latitude_longitude
         grid_north_pole_latitude: 39.25
         grid_north_pole_longitude: -162.0
+        earth_radius: 6371229.
         long_name: coordinates of the rotated North Pole
     y_coordinate: 'rlat'
     x_coordinate: 'rlon'
     CORDEX_domain: 'EUR-11'
+    proj4: '+R=6371229 +lon_0=18 +no_defs +o_lat_p=39.25 +o_lon_p=0 +o_proj=longlat +proj=ob_tran +type=crs'
+    crs_wkt: 'GEOGCRS["unnamed",BASEGEOGCRS["unknown",DATUM["unknown",ELLIPSOID["unknown",6371229,0,LENGTHUNIT["metre",1,ID["EPSG",9001]]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8901]]],DERIVINGCONVERSION["unknown",METHOD["PROJ ob_tran o_proj=longlat"],PARAMETER["o_lat_p",39.25,ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]],PARAMETER["o_lon_p",0,ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]],PARAMETER["lon_0",18,ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]]],CS[ellipsoidal,2],AXIS["longitude",east,ORDER[1],ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]],AXIS["latitude",north,ORDER[2],ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]]]'
+
+CEU-3:
+    crs_name: rotated_pole
+    crs_data:
+        grid_mapping_name: rotated_latitude_longitude
+        grid_north_pole_latitude: 39.25
+        grid_north_pole_longitude: -162.0
+        earth_radius: 6371229.
+        long_name: coordinates of the rotated North Pole
+    y_coordinate: 'rlat'
+    x_coordinate: 'rlon'
+    CORDEX_domain: 'CEU-3'
+    proj4: '+R=6371229 +lon_0=18 +no_defs +o_lat_p=39.25 +o_lon_p=0 +o_proj=longlat +proj=ob_tran +type=crs'
+    crs_wkt: 'GEOGCRS["unnamed",BASEGEOGCRS["unknown",DATUM["unknown",ELLIPSOID["unknown",6371229,0,LENGTHUNIT["metre",1,ID["EPSG",9001]]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8901]]],DERIVINGCONVERSION["unknown",METHOD["PROJ ob_tran o_proj=longlat"],PARAMETER["o_lat_p",39.25,ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]],PARAMETER["o_lon_p",0,ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]],PARAMETER["lon_0",18,ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]]],CS[ellipsoidal,2],AXIS["longitude",east,ORDER[1],ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]],AXIS["latitude",north,ORDER[2],ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]]]'
+
+CEUX-3:
+    crs_name: rotated_pole
+    crs_data:
+        grid_mapping_name: rotated_latitude_longitude
+        grid_north_pole_latitude: 39.25
+        grid_north_pole_longitude: -162.0
+        earth_radius: 6371229.
+        long_name: coordinates of the rotated North Pole
+    y_coordinate: 'rlat'
+    x_coordinate: 'rlon'
+    CORDEX_domain: 'CEUX-3'
+    proj4: '+R=6371229 +lon_0=18 +no_defs +o_lat_p=39.25 +o_lon_p=0 +o_proj=longlat +proj=ob_tran +type=crs'
+    crs_wkt: 'GEOGCRS["unnamed",BASEGEOGCRS["unknown",DATUM["unknown",ELLIPSOID["unknown",6371229,0,LENGTHUNIT["metre",1,ID["EPSG",9001]]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8901]]],DERIVINGCONVERSION["unknown",METHOD["PROJ ob_tran o_proj=longlat"],PARAMETER["o_lat_p",39.25,ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]],PARAMETER["o_lon_p",0,ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]],PARAMETER["lon_0",18,ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]]],CS[ellipsoidal,2],AXIS["longitude",east,ORDER[1],ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]],AXIS["latitude",north,ORDER[2],ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]]]'
 
 GER-0275:
     crs_name: rotated_pole
