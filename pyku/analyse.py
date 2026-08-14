@@ -590,8 +590,8 @@ def n_maps(*dats, var=None, crs=None, colorbar=True, **kwargs):
         ax.add_feature(cartopy.feature.RIVERS)
         ax.add_feature(cartopy.feature.BORDERS)
         ax.add_feature(cartopy.feature.COASTLINE)
-        ax.gridlines(
-            draw_labels=kwargs.get('draw_labels', True),
+        gl = ax.gridlines(
+            draw_labels=kwargs.get('draw_labels', False),
             dms=kwargs.get('dms', True),
             xlocs=kwargs.get('xlocs', None),
             ylocs=kwargs.get('ylocs', None),
@@ -612,6 +612,12 @@ def n_maps(*dats, var=None, crs=None, colorbar=True, **kwargs):
             auto_update=kwargs.get('auto_update', False),
             formatter_kwargs=kwargs.get('formatter_kwargs', None),
         )
+
+        gl.inline = False
+        gl.top_labels = False
+        gl.right_labels = False
+        gl.bottom_labels = True
+        gl.left_labels = True
 
 
 def metadata(ds_mod, ds_obs):
